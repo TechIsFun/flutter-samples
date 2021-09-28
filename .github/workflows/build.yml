@@ -1,0 +1,62 @@
+name: Build & test
+
+on:
+  push:
+    branches:
+      - main
+      - github-actions
+      - 'renovate/**'
+    paths-ignore:
+      - '**.md'
+      - '**.json'
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - '**.json'
+
+jobs:
+  build:
+    # Skip build if head commit contains 'skip ci'
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+     strategy:
+      fail-fast: false
+      matrix:
+        project: ["healthkit"]
+
+    steps:
+      - uses: actions/checkout@v2
+    
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+    
+      - name: Setup the flutter environment
+        uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable' # 'dev', 'alpha', 'beta'
+          # flutter-version: '1.12.x' # you can also specify exact version of flutter
+      
+      - name: Get flutter dependencies 
+        run: flutter pub get
+      
+      - name: Check for any formatting issues in the code
+        run: flutter format --set-exit-if-changed .
+      
+      - name: Statically analyze the Dart code for any errors
+        run: flutter analyze .
+      
+      - name: Run widget tests for our flutter project
+        run: flutter test
+      
+      - name: Build apk 
+        run: flutter build apk
+      
+      - name: Upload generated apk to the artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: release-apk
+          path: build/app/outputs/apk/release/app-release.apk
