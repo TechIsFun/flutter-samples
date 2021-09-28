@@ -19,7 +19,7 @@ jobs:
     # Skip build if head commit contains 'skip ci'
     if: "!contains(github.event.head_commit.message, 'skip ci')"
 
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     timeout-minutes: 120
     strategy:
       fail-fast: false
@@ -74,7 +74,14 @@ jobs:
         run: |
           cd $PROJECT_DIR
           flutter build apk
-      
+
+      - name: Build ipa 
+        env:
+          PROJECT_DIR: ${{ matrix.project }}
+        run: |
+          cd $PROJECT_DIR
+          flutter build ipa
+
       - name: Upload generated apk to the artifacts
         uses: actions/upload-artifact@v1
         with:
