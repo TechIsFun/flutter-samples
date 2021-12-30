@@ -1,5 +1,26 @@
 {
   "extends": [
     "config:base"
+  ],
+  "baseBranches": [
+    "main"
+  ],
+  "packageRules": [
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    }
+  ],
+  "assignees": [
+    "techisfun"
+  ],
+  "schedule": [
+    "every weekday"
   ]
 }
