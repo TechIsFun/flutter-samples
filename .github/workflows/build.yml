@@ -39,6 +39,11 @@ jobs:
           channel: 'stable' # 'dev', 'alpha', 'beta'
           # flutter-version: '1.12.x' # you can also specify exact version of flutter
       
+      - name: Run Flutter doctor
+        run: |
+          cd ${{ matrix.project }}
+          flutter doctor
+
       - name: Get flutter dependencies
         env:
           PROJECT_DIR: ${{ matrix.project }}
