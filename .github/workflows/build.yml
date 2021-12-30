@@ -75,12 +75,12 @@ jobs:
           cd $PROJECT_DIR
           flutter build apk
 
-      #- name: Build ipa 
-      #  env:
-      #    PROJECT_DIR: ${{ matrix.project }}
-      #  run: |
-      #    cd $PROJECT_DIR
-      #    flutter build ipa
+      - name: Run iOS build
+        env:
+          PROJECT_DIR: ${{ matrix.project }}
+        run: |
+          cd $PROJECT_DIR
+          flutter build ios --release --no-codesign
 
       - name: Upload generated apk to the artifacts
         uses: actions/upload-artifact@v1
