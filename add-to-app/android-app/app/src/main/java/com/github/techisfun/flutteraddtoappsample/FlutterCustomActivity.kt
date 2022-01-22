@@ -3,6 +3,8 @@ package com.github.techisfun.flutteraddtoappsample
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import com.github.techisfun.NativeApiImpl
+import com.github.techisfun.PigeonApi
 import com.github.techisfun.flutter_shared.Protos
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
@@ -45,6 +47,10 @@ class FlutterCustomActivity: FlutterActivity() {
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
 
+        // Pigeon
+        PigeonApi.NativeApi.setup(flutterEngine.dartExecutor, NativeApiImpl())
+
+        // Protobuf
         MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
                 call, result ->
             if (call.method == "getPerson") {

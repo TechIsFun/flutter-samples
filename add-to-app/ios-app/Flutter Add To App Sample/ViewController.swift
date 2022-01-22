@@ -28,6 +28,10 @@ class ViewController: UIViewController {
             FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
         flutterViewController.modalPresentationStyle = .fullScreen
         
+        // Pigeon
+        NativeApiSetup(flutterViewController.binaryMessenger, NativeApiImpl())
+        
+        // Protobuf
         let methodChannel = FlutterMethodChannel(name: "com.github.techisfun/defaultChannel",
                                                       binaryMessenger: flutterViewController.binaryMessenger)
         methodChannel.setMethodCallHandler({

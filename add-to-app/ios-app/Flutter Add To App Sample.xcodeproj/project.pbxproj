@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		656C0758279C14E4003B90B3 /* person.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C0757279C14E4003B90B3 /* person.pb.swift */; };
+		656C075E279C22BC003B90B3 /* PigeonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 656C075C279C22BC003B90B3 /* PigeonApi.m */; };
+		656C0760279C22F2003B90B3 /* NativeApiImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C075F279C22F2003B90B3 /* NativeApiImpl.swift */; };
 		65DD02B1279ABC61009F55A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B0279ABC61009F55A4 /* AppDelegate.swift */; };
 		65DD02B3279ABC61009F55A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */; };
 		65DD02B5279ABC61009F55A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B4279ABC61009F55A4 /* ViewController.swift */; };
@@ -20,6 +22,10 @@
 /* Begin PBXFileReference section */
 		168B2C2CFCA0441988650DBA /* Pods_Flutter_Add_To_App_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flutter_Add_To_App_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		656C0757279C14E4003B90B3 /* person.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = person.pb.swift; sourceTree = "<group>"; };
+		656C075B279C22BB003B90B3 /* Flutter Add To App Sample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flutter Add To App Sample-Bridging-Header.h"; sourceTree = "<group>"; };
+		656C075C279C22BC003B90B3 /* PigeonApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PigeonApi.m; sourceTree = "<group>"; };
+		656C075D279C22BC003B90B3 /* PigeonApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PigeonApi.h; sourceTree = "<group>"; };
+		656C075F279C22F2003B90B3 /* NativeApiImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeApiImpl.swift; sourceTree = "<group>"; };
 		65DD02AD279ABC61009F55A4 /* Flutter Add To App Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flutter Add To App Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DD02B0279ABC61009F55A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 		65DD02AF279ABC61009F55A4 /* Flutter Add To App Sample */ = {
 			isa = PBXGroup;
 			children = (
+				656C075D279C22BC003B90B3 /* PigeonApi.h */,
+				656C075C279C22BC003B90B3 /* PigeonApi.m */,
 				65DD02B0279ABC61009F55A4 /* AppDelegate.swift */,
 				65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */,
 				65DD02B4279ABC61009F55A4 /* ViewController.swift */,
@@ -90,6 +98,8 @@
 				65DD02B9279ABC63009F55A4 /* Assets.xcassets */,
 				65DD02BB279ABC63009F55A4 /* LaunchScreen.storyboard */,
 				65DD02BE279ABC63009F55A4 /* Info.plist */,
+				656C075B279C22BB003B90B3 /* Flutter Add To App Sample-Bridging-Header.h */,
+				656C075F279C22F2003B90B3 /* NativeApiImpl.swift */,
 			);
 			path = "Flutter Add To App Sample";
 			sourceTree = "<group>";
@@ -137,6 +147,7 @@
 				TargetAttributes = {
 					65DD02AC279ABC61009F55A4 = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -231,7 +242,9 @@
 				65DD02B5279ABC61009F55A4 /* ViewController.swift in Sources */,
 				656C0758279C14E4003B90B3 /* person.pb.swift in Sources */,
 				65DD02B1279ABC61009F55A4 /* AppDelegate.swift in Sources */,
+				656C075E279C22BC003B90B3 /* PigeonApi.m in Sources */,
 				65DD02B3279ABC61009F55A4 /* SceneDelegate.swift in Sources */,
+				656C0760279C22F2003B90B3 /* NativeApiImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +392,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5774QC243R;
@@ -397,6 +411,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.techisfun.Flutter-Add-To-App-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Flutter Add To App Sample/Flutter Add To App Sample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -408,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5774QC243R;
@@ -426,6 +443,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.techisfun.Flutter-Add-To-App-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Flutter Add To App Sample/Flutter Add To App Sample-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

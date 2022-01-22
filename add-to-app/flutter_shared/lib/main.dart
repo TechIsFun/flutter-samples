@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_shared/PigeonApi.dart';
 import 'package:flutter_shared/protos/person.pb.dart';
 
 void main() => runApp(const MyApp());
@@ -52,7 +53,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   static const platform = MethodChannel('com.github.techisfun/defaultChannel');
 
+  final NativeApi nativeApi = NativeApi();
   Person? _person;
+  PersonMessageModel? _personMessageModel;
   int _counter = 0;
 
   @override
@@ -71,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       _getPerson();
+      _getPersonMessageModel();
     }
   }
 
@@ -83,6 +87,11 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  Future<void> _getPersonMessageModel() async {
+    _personMessageModel = await nativeApi.getPerson();
+    setState(() {});
   }
 
   Future<void> _getPerson() async {
@@ -141,7 +150,10 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
               'You have pushed the button this many times:',
             ),
             Text(
-              "Person name: ${_person?.name}",
+              "Person from protobuf: ${_person?.name}",
+            ),
+            Text(
+              "Person from pigeon: ${_personMessageModel?.name}",
             ),
             Text(
               '$_counter',
