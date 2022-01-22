@@ -4,11 +4,17 @@ PODS:
     - Flutter
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
+  - SwiftProtobuf (1.18.0)
 
 DEPENDENCIES:
   - Flutter (from `../flutter_shared/.ios/Flutter/engine`)
   - flutter_shared (from `../flutter_shared/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../flutter_shared/.ios/Flutter/FlutterPluginRegistrant`)
+  - SwiftProtobuf (~> 1.4)
+
+SPEC REPOS:
+  trunk:
+    - SwiftProtobuf
 
 EXTERNAL SOURCES:
   Flutter:
@@ -22,7 +28,8 @@ SPEC CHECKSUMS:
   Flutter: bdfa2e8fe0e2880a2c6a58a0b1a8675c262a07af
   flutter_shared: 1d43d0b19aa427f80363979af7b225e48cda6e26
   FlutterPluginRegistrant: 2afd5ea46d3a949472c9b7da6462d8fbf7d8b16e
+  SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
 
-PODFILE CHECKSUM: 12dbc2428fd27365703ae1314a89d05422f00af3
+PODFILE CHECKSUM: ab97f9e281d626e864b9cbf737192c5e75147f13
 
 COCOAPODS: 1.11.2

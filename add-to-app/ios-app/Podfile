@@ -12,5 +12,5 @@ target 'Flutter Add To App Sample' do
   install_all_flutter_pods(flutter_application_path)
   
   # Pods for Flutter Add To App Sample
-
+  pod 'SwiftProtobuf', '~> 1.4'
 end

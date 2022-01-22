@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		656C0758279C14E4003B90B3 /* person.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 656C0757279C14E4003B90B3 /* person.pb.swift */; };
 		65DD02B1279ABC61009F55A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B0279ABC61009F55A4 /* AppDelegate.swift */; };
 		65DD02B3279ABC61009F55A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */; };
 		65DD02B5279ABC61009F55A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65DD02B4279ABC61009F55A4 /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		168B2C2CFCA0441988650DBA /* Pods_Flutter_Add_To_App_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flutter_Add_To_App_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		656C0757279C14E4003B90B3 /* person.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = person.pb.swift; sourceTree = "<group>"; };
 		65DD02AD279ABC61009F55A4 /* Flutter Add To App Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flutter Add To App Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65DD02B0279ABC61009F55A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,8 +50,15 @@
 				7C2866915B65ADECE15E539D /* Pods-Flutter Add To App Sample.debug.xcconfig */,
 				E42B59B99DE564BA080335BA /* Pods-Flutter Add To App Sample.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		656C0756279C14E4003B90B3 /* protos */ = {
+			isa = PBXGroup;
+			children = (
+				656C0757279C14E4003B90B3 /* person.pb.swift */,
+			);
+			path = protos;
 			sourceTree = "<group>";
 		};
 		65DD02A4279ABC61009F55A4 = {
@@ -77,6 +86,7 @@
 				65DD02B2279ABC61009F55A4 /* SceneDelegate.swift */,
 				65DD02B4279ABC61009F55A4 /* ViewController.swift */,
 				65DD02B6279ABC61009F55A4 /* Main.storyboard */,
+				656C0756279C14E4003B90B3 /* protos */,
 				65DD02B9279ABC63009F55A4 /* Assets.xcassets */,
 				65DD02BB279ABC63009F55A4 /* LaunchScreen.storyboard */,
 				65DD02BE279ABC63009F55A4 /* Info.plist */,
@@ -219,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				65DD02B5279ABC61009F55A4 /* ViewController.swift in Sources */,
+				656C0758279C14E4003B90B3 /* person.pb.swift in Sources */,
 				65DD02B1279ABC61009F55A4 /* AppDelegate.swift in Sources */,
 				65DD02B3279ABC61009F55A4 /* SceneDelegate.swift in Sources */,
 			);

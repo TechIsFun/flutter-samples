@@ -9,7 +9,7 @@ import UIKit
 import Flutter
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +27,24 @@ class ViewController: UIViewController {
         let flutterViewController =
             FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
         flutterViewController.modalPresentationStyle = .fullScreen
+        
+        let methodChannel = FlutterMethodChannel(name: "com.github.techisfun/defaultChannel",
+                                                      binaryMessenger: flutterViewController.binaryMessenger)
+        methodChannel.setMethodCallHandler({
+            [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+                if call.method == "getPerson" {
+                    let person = Person.with {
+                        $0.name = "iOS Person"
+                    }
+                    do {
+                        result(try person.serializedData())
+                    } catch {
+                        result(FlutterError(code: "Cannot serialize data", message: nil, details: nil))
+                    }
+                }
+            })
+
+        
         present(flutterViewController, animated: true, completion: nil)
     }
 }

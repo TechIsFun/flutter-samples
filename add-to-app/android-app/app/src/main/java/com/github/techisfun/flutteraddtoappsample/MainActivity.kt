@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import com.github.techisfun.flutter_shared.Protos
 
 import io.flutter.embedding.android.FlutterActivity;
 
@@ -17,12 +18,15 @@ class MainActivity : AppCompatActivity() {
 
         loading = findViewById(R.id.loading)
 
+        val person = Protos.Person.newBuilder()
+            .setName("Android Person")
+            .build()
+
         val button: View = findViewById(R.id.button)
         button.setOnClickListener {
             loading.visibility = View.VISIBLE
-            startActivity(FlutterActivity
-                .withCachedEngine(FLUTTER_ENGINE_ID)
-                .build(this))
+            //startActivity(FlutterActivity.withCachedEngine(FLUTTER_ENGINE_ID).build(this))
+            startActivity(FlutterCustomActivity.withPerson(this, person))
         }
 
     }

@@ -1,5 +1,9 @@
+import 'dart:typed_data';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_shared/protos/person.pb.dart';
 
 void main() => runApp(const MyApp());
 
@@ -45,8 +49,30 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
+  static const platform = MethodChannel('com.github.techisfun/defaultChannel');
+
+  Person? _person;
   int _counter = 0;
+
+  @override
+  void initState() {
+    WidgetsBinding.instance?.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance?.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      _getPerson();
+    }
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -57,6 +83,19 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
+  }
+
+  Future<void> _getPerson() async {
+    try {
+      final Uint8List byteArray = await platform.invokeMethod('getPerson');
+      setState(() {
+        _person = Person.fromBuffer(byteArray);
+      });
+    } on PlatformException catch (e) {
+      if (kDebugMode) {
+        print("Failed to get person: '${e.message}'");
+      }
+    }
   }
 
   @override
@@ -100,6 +139,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
+            ),
+            Text(
+              "Person name: ${_person?.name}",
             ),
             Text(
               '$_counter',
