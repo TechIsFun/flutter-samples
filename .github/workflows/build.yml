@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ["healthkit", "add-to-app"]
+        project: ["healthkit"]
 
     steps:
       - uses: actions/checkout@v2
