@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Flutter Add To App Sample/Pods-Flutter Add To App Sample-frameworks.sh
+${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework
+${PODS_ROOT}/../../flutter_shared/.ios/Flutter/App.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Flutter/Flutter.framework/Flutter
