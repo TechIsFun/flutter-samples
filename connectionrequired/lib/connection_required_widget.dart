@@ -119,6 +119,7 @@ class _NoConnectionWidget extends StatelessWidget {
   }
 }
 
+/*
 class _WaitingForConnectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -136,3 +137,4 @@ class _WaitingForConnectionWidget extends StatelessWidget {
     )));
   }
 }
+*/
