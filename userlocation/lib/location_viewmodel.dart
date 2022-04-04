@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:meta/meta.dart';
 import 'package:userlocation/location_model.dart';
 
 class LocationViewModel extends ChangeNotifier {
