@@ -24,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: ["healthkit"]
+        project: ["healthkit", "connectionrequired"]
 
     steps:
       - uses: actions/checkout@v3
