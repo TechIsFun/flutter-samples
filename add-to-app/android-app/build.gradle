@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.protobufVersion = '0.8.8'
+    ext.protobufVersion = '0.8.18'
 
     repositories {
         google()
