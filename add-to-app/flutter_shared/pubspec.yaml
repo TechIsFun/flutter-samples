@@ -31,7 +31,7 @@ dependencies:
   protobuf: any
 
 dev_dependencies:
-  pigeon: ^3.0.0
+  pigeon: ^6.0.0
   
   flutter_test:
     sdk: flutter
